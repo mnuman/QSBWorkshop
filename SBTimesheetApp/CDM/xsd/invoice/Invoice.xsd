@@ -1,0 +1,23 @@
+<xsd:schema targetNamespace="http://xmlns.qualogy.com/cdm/invoice" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:inv="http://xmlns.qualogy.com/cdm/invoice" xmlns:com="http://xmlns.qualogy.com/cdm/common">
+  <xsd:import schemaLocation="../common/CommonDataElements.xsd" namespace="http://xmlns.qualogy.com/cdm/common"/>
+  <xsd:element name="Invoice" type="inv:InvoiceType"/>
+  <xsd:element name="InvoiceLine" type="inv:InvoiceLineType"/>
+  <xsd:complexType name="InvoiceType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="xsd:string"/>
+      <xsd:element name="Currency" type="com:CurrencyType"/>
+      <xsd:element name="InvoiceDate" type="xsd:date"/>
+      <xsd:element name="CustomerIdentification" type="com:IdentifierType"/>
+      <xsd:element name="Comments" type="xsd:string" minOccurs="0"/>
+      <xsd:element ref="inv:InvoiceLine" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="InvoiceLineType">
+    <xsd:sequence>
+      <xsd:element name="LineNumber" type="com:SequenceNumber"/>
+      <xsd:element name="TotalAmount" type="com:CurrencyAmountType"/>
+      <xsd:element name="Description" type="com:DescriptionType"/>
+      <xsd:element name="Comments" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

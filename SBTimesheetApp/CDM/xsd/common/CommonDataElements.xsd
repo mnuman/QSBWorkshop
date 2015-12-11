@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://xmlns.qualogy.com/cdm/common"
+            targetNamespace="http://xmlns.qualogy.com/cdm/common" elementFormDefault="qualified">
+  <xsd:element name="SequenceNumber" type="com:SequenceNumber"/>
+  <xsd:element name="CurrencyAmount" type="com:CurrencyAmountType"/>
+  <xsd:element name="NumericIdentifier" type="com:NumericIdentifierType"/>
+  <xsd:element name="Identifier" type="com:IdentifierType"/>
+  <xsd:element name="CurrencyRate" type="com:CurrencyRateType"/>
+  <xsd:element name="Quantity" type="com:QuantityType"/>
+  <xsd:element name="HoursQuantity" type="com:HoursQuantityType"/>
+  <xsd:element name="Description" type="com:DescriptionType"/>
+  <xsd:element name="Currency" type="com:CurrencyType"/>
+  <xsd:element name="Line" type="com:LineType"/>
+  <xsd:element name="Phone" type="com:PhoneType"/>
+  <xsd:element name="Address" type="com:AddressType"/>
+
+  <xsd:simpleType name="SequenceNumber">
+    <xsd:annotation>
+      <xsd:documentation>For ordering purposes, sequence number starting with 1</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:short">
+      <xsd:minInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrencyAmountType">
+    <xsd:annotation>
+      <xsd:documentation>Representation of money amounts with two 2 decimals</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="2"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="NumericIdentifierType">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="IdentifierType">
+    <xsd:annotation>
+      <xsd:documentation>Generic alphanumeric identification type</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="30"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrencyRateType">
+    <xsd:restriction base="com:CurrencyAmountType"/>
+  </xsd:simpleType>
+  <xsd:simpleType name="QuantityType">
+    <xsd:annotation>
+      <xsd:documentation>Generic quantity representation, may also be negative</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:decimal">
+      <xsd:fractionDigits value="5"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="HoursQuantityType">
+    <xsd:restriction base="com:QuantityType">
+      <xsd:fractionDigits value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="DescriptionType">
+    <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="256"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="CurrencyType">
+    <xsd:annotation>
+      <xsd:documentation>Representation of the currency code</xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="EUR"/>
+      <xsd:enumeration value="USD"/>
+      <xsd:enumeration value="GBP"/>
+      <xsd:enumeration value="SRD"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="LineType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MOBILE"/>
+      <xsd:enumeration value="LANDLINE"/>
+      <xsd:enumeration value="FIXED"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="PhoneType">
+    <xsd:sequence>
+      <xsd:element name="TypeOfPhone" type="com:LineType"/>
+      <xsd:element name="AreaCode"/>
+      <xsd:element name="SubscriberNumber"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AddressType">
+    <xsd:sequence>
+      <xsd:element name="Streetname"/>
+      <xsd:element name="HouseNumber"/>
+      <xsd:element name="HouseNumberSuffix"/>
+      <xsd:element name="PostalCode"/>
+      <xsd:element name="City"/>
+      <xsd:element name="Country"/>
+      <xsd:sequence>
+        <xsd:element name="Phone" type="com:PhoneType" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

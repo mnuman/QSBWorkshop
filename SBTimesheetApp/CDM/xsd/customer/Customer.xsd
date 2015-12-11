@@ -1,0 +1,16 @@
+<xsd:schema targetNamespace="http://xmlns.qualogy.com/cdm/customer" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cus="http://xmlns.qualogy.com/cdm/customer" xmlns:com="http://xmlns.qualogy.com/cdm/common">
+  <xsd:import schemaLocation="../common/CommonDataElements.xsd" namespace="http://xmlns.qualogy.com/cdm/common"/>
+  <xsd:element name="Customer" type="cus:CustomerType">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="CustomerType">
+    <xsd:sequence>
+      <xsd:element name="Number" type="com:IdentifierType"/>
+      <xsd:element name="PreferredCurrency" type="com:CurrencyType"/>
+      <xsd:element name="BillingAddress" type="com:AddressType"/>
+      <xsd:element name="ShippingAddress" type="com:AddressType" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

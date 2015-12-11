@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="TimesheetOverview/wsdl/Timesheet"/>
+            <con:binding>
+                <con:name>process_bind</con:name>
+                <con:namespace>http://xmlns.qualogy.com/Timesheet</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f57c7ff.4850ed89.0.1519100932b.N7ffc">
+            <con:stage id="_StageId-N3f57c7ff.4850ed89.0.1519100932b.N7ffa" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con1:log>
+                        <con2:id>_ActionId-N3f57c7ff.4850ed89.0.1519100932b.N7ff3</con2:id>
+                        <con1:logLevel>info</con1:logLevel>
+                        <con1:expr>
+                            <con2:xqueryText>$body</con2:xqueryText>
+                        </con1:expr>
+                        <con1:message>**** Request Body ****</con1:message>
+                    </con1:log>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f57c7ff.4850ed89.0.1519100932b.N7ffb">
+            <con:stage id="_StageId-N3f57c7ff.4850ed89.0.1519100932b.N7ff9" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con3:replace varName="body" contents-only="true">
+                        <con2:id>_ActionId-N3f57c7ff.4850ed89.0.1519100932b.N7ff6</con2:id>
+                        <con3:expr>
+                            <con2:xqueryText><![CDATA[<tim:TimesheetCollection xmlns:tim="http://xmlns.qualogy.com/cdm/timesheet">
+    <tim:Timesheet>
+        <tim:Id>MINU-001</tim:Id>
+        <tim:Employee>AMNU</tim:Employee>
+        <tim:TimeEntry>
+            <tim:TimeEntryDate>2004-02-14</tim:TimeEntryDate>
+            <tim:Customer>RABO</tim:Customer>
+            <tim:Rate>1000.00</tim:Rate>
+            <tim:Hours>8.00</tim:Hours>
+        </tim:TimeEntry>
+        <tim:TimeEntry>
+            <tim:TimeEntryDate>2004-02-15</tim:TimeEntryDate>
+            <tim:Customer>RABO</tim:Customer>
+            <tim:Rate>1000.00</tim:Rate>
+            <tim:Hours>8.00</tim:Hours>
+        </tim:TimeEntry>
+    </tim:Timesheet>
+    <tim:Timesheet>
+        <tim:Id>MINU-002</tim:Id>
+        <tim:Employee>AMNU</tim:Employee>
+        <tim:TimeEntry>
+            <tim:TimeEntryDate>2014-02-14</tim:TimeEntryDate>
+            <tim:Customer>RABO</tim:Customer>
+            <tim:Rate>1000.00</tim:Rate>
+            <tim:Hours>8.00</tim:Hours>
+        </tim:TimeEntry>
+        <tim:TimeEntry>
+            <tim:TimeEntryDate>2014-02-15</tim:TimeEntryDate>
+            <tim:Customer>RABO</tim:Customer>
+            <tim:Rate>1000.00</tim:Rate>
+            <tim:Hours>8.00</tim:Hours>
+        </tim:TimeEntry>
+    </tim:Timesheet>
+</tim:TimesheetCollection>]]></con2:xqueryText>
+                        </con3:expr>
+                    </con3:replace>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="PipelinePairNode1">
+                <con:request>request-N3f57c7ff.4850ed89.0.1519100932b.N7ffc</con:request>
+                <con:response>response-N3f57c7ff.4850ed89.0.1519100932b.N7ffb</con:response>
+            </con:pipeline-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>

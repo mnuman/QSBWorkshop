@@ -1,0 +1,30 @@
+<xsd:schema targetNamespace="http://xmlns.qualogy.com/cdm/timesheet" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tim="http://xmlns.qualogy.com/cdm/timesheet" xmlns:com="http://xmlns.qualogy.com/cdm/common">
+  <xsd:import schemaLocation="../common/CommonDataElements.xsd" namespace="http://xmlns.qualogy.com/cdm/common"/>
+  <xsd:element name="TimeEntry" type="tim:TimeEntryLineType"/>
+  <xsd:element name="Timesheet" type="tim:TimesheetType"/>
+  <xsd:element name="TimesheetCollection" type="tim:TimesheetCollectionType"/>
+  <xsd:complexType name="TimeEntryLineType">
+    <xsd:sequence>
+      <xsd:element name="TimeEntryDate" type="xsd:date"/>
+      <xsd:element name="Customer" type="com:IdentifierType"/>
+      <xsd:sequence minOccurs="0">
+        <xsd:element name="Project" type="com:IdentifierType"/>
+        <xsd:element name="Task" type="com:IdentifierType"/>
+      </xsd:sequence>
+      <xsd:element name="Rate" type="com:CurrencyRateType"/>
+      <xsd:element name="Hours" type="com:HoursQuantityType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TimesheetType">
+    <xsd:sequence>
+      <xsd:element name="Id" type="com:IdentifierType"/>
+      <xsd:element name="Employee" type="com:IdentifierType"/>
+      <xsd:element maxOccurs="unbounded" ref="tim:TimeEntry"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="TimesheetCollectionType">
+    <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+      <xsd:element ref="tim:Timesheet"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
