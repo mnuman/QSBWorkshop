@@ -80,5 +80,10 @@
                 <con:response>response-N3f57c7ff.4850ed89.0.1519100932b.N7ffb</con:response>
             </con:pipeline-node>
         </con:flow>
+        <con:partner-links>
+            <con:partner-link>
+                <con:service ref="TimesheetOverview/QTimeDB" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            </con:partner-link>
+        </con:partner-links>
     </con:router>
 </con:pipelineEntry>

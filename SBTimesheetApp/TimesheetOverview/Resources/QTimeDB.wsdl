@@ -1,0 +1,32 @@
+<wsdl:definitions
+     name="QTimeDB"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SBTimesheetApp/TimesheetOverview/QTimeDB"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SBTimesheetApp/TimesheetOverview/QTimeDB"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/QTimeDB"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="QTimeDB_plt" >
+    <plt:role name="QTimeDB_role" >
+      <plt:portType name="tns:QTimeDB_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/QTimeDB" schemaLocation="QTimeDB_table.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="QTimeDBSelect_inputParameters">
+        <wsdl:part name="QTimeDBSelect_inputParameters" element="top:QTimeDBSelect_mdwCodeInputParameters"/>
+    </wsdl:message>
+    <wsdl:message name="UrenstatenCollection_msg">
+        <wsdl:part name="UrenstatenCollection" element="top:UrenstatenCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="QTimeDB_ptt">
+        <wsdl:operation name="QTimeDBSelect">
+            <wsdl:input message="tns:QTimeDBSelect_inputParameters"/>
+            <wsdl:output message="tns:UrenstatenCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

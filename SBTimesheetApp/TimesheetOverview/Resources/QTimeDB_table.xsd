@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/QTimeDB" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/QTimeDB" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="UrenstatenCollection" type="UrenstatenCollection"/>
+   <xs:complexType name="UrenstatenCollection">
+      <xs:sequence>
+         <xs:element name="Urenstaten" type="Urenstaten" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Urenstaten">
+      <xs:sequence>
+         <xs:element name="urenstaatnummer" type="string30"/>
+         <xs:element name="medewerkercode" type="string30" minOccurs="0"/>
+         <xs:element name="urenregelsCollection" minOccurs="0">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="Urenregels" type="Urenregels" minOccurs="0" maxOccurs="unbounded"/>
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Urenregels">
+      <xs:sequence>
+         <xs:element name="regelnummer" type="xs:int"/>
+         <xs:element name="regeldatum" type="xs:dateTime" minOccurs="0"/>
+         <xs:element name="klant" type="string30" minOccurs="0"/>
+         <xs:element name="projectcode" type="string30" minOccurs="0" nillable="true"/>
+         <xs:element name="projecttaak" type="string30" minOccurs="0" nillable="true"/>
+         <xs:element name="tarief" type="xs:decimal" minOccurs="0"/>
+         <xs:element name="aantalUren" type="xs:decimal" minOccurs="0"/>
+         <xs:element name="verwerkt" type="string1" minOccurs="0"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="QTimeDBSelect_mdwCodeInputParameters" type="QTimeDBSelect_mdwCode"/>
+   <xs:complexType name="QTimeDBSelect_mdwCode">
+      <xs:sequence>
+         <xs:element name="mdwCode" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:simpleType name="string30">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="30"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:simpleType name="string1">
+      <xs:restriction base="xs:string">
+         <xs:maxLength value="1"/>
+      </xs:restriction>
+   </xs:simpleType>
+</xs:schema>
