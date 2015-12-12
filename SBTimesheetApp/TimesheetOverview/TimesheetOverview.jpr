@@ -180,6 +180,8 @@
    <hash n="oracle.sb.tooling.ide.core.projects.SbProjectSettings">
       <hash n="sbContentSet">
          <list n="pattern-filters">
+            <string v="-testDBOutput.xml"/>
+            <string v="-Result.xml"/>
             <string v="-.data"/>
             <string v="-.settings"/>
             <string v="+**"/>
