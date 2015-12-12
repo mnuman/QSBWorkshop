@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+   <entry key="root_descriptor_alias">URENSTATEN</entry>
+   <entry key="URENREGELS.PROJECTTAAK:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS.AANTAL_UREN:db_column_not_null">true</entry>
+   <entry key="URENSTATEN.URENSTAATNUMMER:db_column_not_null">true</entry>
+   <entry key="URENREGELS.PROJECTCODE:db_column_size">30</entry>
+   <entry key="URENREGELS.REGELDATUM:db_column_type">DATE</entry>
+   <entry key="URENREGELS.URENSTAATNUMMER:db_column_not_null">true</entry>
+   <entry key="URENREGELS:db_column_8">VERWERKT</entry>
+   <entry key="URENREGELS:db_column_7">AANTAL_UREN</entry>
+   <entry key="URENREGELS:db_column_6">TARIEF</entry>
+   <entry key="URENREGELS.PROJECTTAAK:db_column_size">30</entry>
+   <entry key="URENREGELS:db_column_5">PROJECTTAAK</entry>
+   <entry key="URENREGELS:db_column_4">PROJECTCODE</entry>
+   <entry key="URENREGELS:db_column_3">KLANT</entry>
+   <entry key="URENREGELS.VERWERKT:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS:db_column_2">REGELDATUM</entry>
+   <entry key="URENREGELS.VERWERKT:db_column_not_null">true</entry>
+   <entry key="URENREGELS:db_column_1">REGELNUMMER</entry>
+   <entry key="URENREGELS:db_column_0">URENSTAATNUMMER</entry>
+   <entry key="URENREGELS.TARIEF:db_column_not_null">true</entry>
+   <entry key="URENSTATEN:db_column_1">MEDEWERKERCODE</entry>
+   <entry key="URENSTATEN:db_column_0">URENSTAATNUMMER</entry>
+   <entry key="URENSTATEN.MEDEWERKERCODE:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS.VERWERKT:db_column_size">1</entry>
+   <entry key="URENREGELS.REGELNUMMER:db_column_precision">3</entry>
+   <entry key="URENREGELS.TARIEF:db_column_type">NUMBER</entry>
+   <entry key="URENREGELS.AANTAL_UREN:db_column_scale">2</entry>
+   <entry key="URENSTATEN.MEDEWERKERCODE:db_column_size">30</entry>
+   <entry key="URENSTATEN:db_table_type">TABLE</entry>
+   <entry key="URENREGELS.AANTAL_UREN:db_column_type">NUMBER</entry>
+   <entry key="URENREGELS:db_table_type">TABLE</entry>
+   <entry key="URENREGELS.AANTAL_UREN:db_column_precision">4</entry>
+   <entry key="URENSTATEN.URENSTAATNUMMER:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS.KLANT:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS.URENSTAATNUMMER:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS.KLANT:db_column_not_null">true</entry>
+   <entry key="URENREGELS.REGELDATUM:db_column_not_null">true</entry>
+   <entry key="URENREGELS.TARIEF:db_column_scale">0</entry>
+   <entry key="URENREGELS.REGELNUMMER:db_column_scale">0</entry>
+   <entry key="URENREGELS.TARIEF:db_column_precision">38</entry>
+   <entry key="URENREGELS.REGELNUMMER:db_column_type">NUMBER</entry>
+   <entry key="URENSTATEN.URENSTAATNUMMER:db_column_size">30</entry>
+   <entry key="URENREGELS.PROJECTTAAK:db_column_not_null">false</entry>
+   <entry key="URENREGELS.KLANT:db_column_size">30</entry>
+   <entry key="URENSTATEN.MEDEWERKERCODE:db_column_not_null">true</entry>
+   <entry key="URENREGELS.URENSTAATNUMMER:db_column_size">30</entry>
+   <entry key="URENREGELS.PROJECTCODE:db_column_type">VARCHAR2</entry>
+   <entry key="URENREGELS.REGELNUMMER:db_column_not_null">true</entry>
+   <entry key="URENREGELS.PROJECTCODE:db_column_not_null">false</entry>
+</properties>

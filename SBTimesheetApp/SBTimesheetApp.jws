@@ -27,6 +27,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="CDM/CDM.jpr"/></hash>
+      <hash><url n="URL" path="TimesheetGenesis/TimesheetGenesis.jpr"/></hash>
       <hash><url n="URL" path="TimesheetOverview/TimesheetOverview.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
@@ -46,6 +47,6 @@
       </hash>
    </hash>
    <hash n="oracle.sb.tooling.ide.core.internal.application.SbApplication">
-      <value n="configContextSessionName" v="OSB-IDE_build_1449846839388"/>
+      <value n="configContextSessionName" v="OSB-IDE_build_1449949200755"/>
    </hash>
 </jws:workspace>

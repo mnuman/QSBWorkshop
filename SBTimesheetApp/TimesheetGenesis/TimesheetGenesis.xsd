@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:tsg="http://xmlns.qualogy.com/TimesheetGenesis"
+            targetNamespace="http://xmlns.qualogy.com/TimesheetGenesis" 
+            attributeFormDefault="qualified">
+  <xsd:element name="TimesheetResponse" type="xsd:string">
+    <xsd:annotation>
+      <xsd:documentation>Response elementt</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+</xsd:schema>
