@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/file/SBTimesheetApp/TimesheetOverview/henkiesFileWriter" name="henkiesFileWriter-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="henkiesFileWriter.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/file/SBTimesheetApp/TimesheetOverview/henkiesFileWriter"/>
+    <wsdl:binding name="Write_ptt-binding" type="hen:Write_ptt" xmlns:hen="http://xmlns.oracle.com/pcbpel/adapter/file/SBTimesheetApp/TimesheetOverview/henkiesFileWriter">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="Write">
+            <soap:operation soapAction="Write"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+<view_states>
+   <function arity="1" name="func">
+      <source_tree_view last.visible.row="11" last.visible.path="/sourceRoot[[0]]/TimesheetCollection[[0]]/Timesheet[[0]]/TimeEntry[[2]]/Hours[[4]]" expanded.paths="/sourceRoot[[0]]/TimesheetCollection[[0]]&#xA;/sourceRoot[[0]]/TimesheetCollection[[0]]/Timesheet[[0]]&#xA;/sourceRoot[[0]]/TimesheetCollection[[0]]/Timesheet[[0]]/TimeEntry[[2]]&#xA;/sourceRoot[[0]]/TimesheetCollection[[0]]/Timesheet[[0]]/TimeEntry[[2]]/Sequence[[2]]" selected.paths="/sourceRoot[[0]]/TimesheetCollection[[0]]/Timesheet[[0]]/TimeEntry[[2]]/TimeEntryDate[[0]]" first.visible.path="/sourceRoot[[0]]/TimesheetCollection[[0]]" first.visible.row="0"/>
+      <target_tree_view last.visible.row="9" last.visible.path="/TargetRoot[[0]]/Collection[[0]]/Row[[0]]/Hours[[7]]" expanded.paths="/TargetRoot[[0]]/Collection[[0]]&#xA;/TargetRoot[[0]]/Collection[[0]]/Row[[0]]" selected.paths="/TargetRoot[[0]]/Collection[[0]]/Row[[0]]/TimeEntryDate[[2]]" first.visible.path="/TargetRoot[[0]]/Collection[[0]]" first.visible.row="0"/>
+   </function>
+</view_states>
