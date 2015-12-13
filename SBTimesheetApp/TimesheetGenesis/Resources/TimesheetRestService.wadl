@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:inp1="http://xmlns.qualogy.com/cdm/timesheet" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="TimesheetRestService">Expose creation of timesheet as REST service</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/SBTimesheetApp/TimesheetGenesis/TimesheetGenesis" xmlns:inp1="http://xmlns.qualogy.com/cdm/timesheet" xmlns:inp2="http://xmlns.qualogy.com/TimesheetGenesis" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <xsd:import namespace="http://xmlns.qualogy.com/cdm/timesheet" schemaLocation="../../CDM/xsd/timesheet/Timesheet.xsd"/>
+        </xsd:schema>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/SBTimesheetApp/TimesheetGenesis/TimesheetGenesis" xmlns:inp1="http://xmlns.qualogy.com/cdm/timesheet" xmlns:inp2="http://xmlns.qualogy.com/TimesheetGenesis" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <xsd:import namespace="http://xmlns.qualogy.com/TimesheetGenesis" schemaLocation="../TimesheetGenesis.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/timesheets">
+         <method name="POST" soa:wsdlOperation="process">
+            <request>
+               <representation mediaType="application/json" element="cns:Timesheet" xmlns:cns="http://xmlns.qualogy.com/cdm/timesheet"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:TimesheetResponse" xmlns:cns="http://xmlns.qualogy.com/TimesheetGenesis"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

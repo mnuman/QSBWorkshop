@@ -1,0 +1,12 @@
+{
+  "Id" : "string69",
+  "Employee" : "string72",
+  "TimeEntry" : [ {
+    "TimeEntryDate" : "2015-12-13",
+    "Customer" : "string75",
+    "Project" : "string78",
+    "Task" : "string81",
+    "Rate" : 84.0,
+    "Hours" : 85.0
+  } ]
+}
