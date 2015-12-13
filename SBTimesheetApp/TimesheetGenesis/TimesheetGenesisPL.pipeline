@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con2="http://www.bea.com/wli/sb/stages/logging/config" xmlns:con3="http://www.bea.com/wli/sb/stages/config">
     <con:coreEntry>
         <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
             <con:wsdl ref="TimesheetGenesis/TimesheetGenesis"/>
@@ -12,7 +12,34 @@
             <con:snippetVersion>1.0</con:snippetVersion>
         </con:xqConfiguration>
     </con:coreEntry>
-    <con:router>
+    <con:router errorHandler="error-N3f574df5.N727ea44e.0.1519baaa9c9.N7f40">
+        <con:pipeline type="error" name="error-N3f574df5.N727ea44e.0.1519baaa9c9.N7f40">
+            <con:stage id="_StageId-N3f574df5.N727ea44e.0.1519baaa9c9.N7f3f" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con2:log>
+                        <con3:id>_ActionId-N3f574df5.N727ea44e.0.1519baaa9c9.N7f3c</con3:id>
+                        <con2:logLevel>error</con2:logLevel>
+                        <con2:expr>
+                            <con3:xqueryText>$fault</con3:xqueryText>
+                        </con2:expr>
+                        <con2:message>**** Fault ****</con2:message>
+                    </con2:log>
+                    <con1:replace varName="body" contents-only="true">
+                        <con3:id>_ActionId-N3f574df5.N727ea44e.0.1519baaa9c9.N7f39</con3:id>
+                        <con1:expr>
+                            <con3:xqueryText><![CDATA[<soap-env:Fault>
+  <faultcode>soap-env:Server.TECNICALFAULT</faultcode>
+  <faultstring>Some technical fault has occurred. That's life ...</faultstring>
+</soap-env:Fault>]]></con3:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con3:reply isError="true">
+                        <con3:id>_ActionId-N3f574df5.N727ea44e.0.1519baaa9c9.N7f36</con3:id>
+                    </con3:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
         <con:flow>
             <con:route-node name="RouteNode1" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
                 <con:context>
@@ -26,9 +53,9 @@
                         <con1:operation>insert</con1:operation>
                         <con1:outboundTransform>
                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
-                                <con2:id>_ActionId-N3f57c7ff.2a1fec24.0.15197c43930.N7ffd</con2:id>
+                                <con2:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.2a1fec24.0.15197c43930.N7ffd</con2:id>
                                 <con3:expr>
-                                    <con2:xqueryTransform>
+                                    <con2:xqueryTransform xmlns:con4="http://www.bea.com/wli/sb/stages/config">
                                         <con2:resource ref="TimesheetGenesis/TimesheetCDM2DB"/>
                                         <con2:param name="cdmTimesheet">
                                             <con2:path>$body/*[1]</con2:path>
@@ -39,9 +66,9 @@
                         </con1:outboundTransform>
                         <con1:responseTransform>
                             <con3:replace varName="body" contents-only="true" xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
-                                <con2:id>_ActionId-N3f57c7ff.N72aaa4b8.0.15197dad406.N7fcf</con2:id>
+                                <con2:id xmlns:con4="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f57c7ff.N72aaa4b8.0.15197dad406.N7fcf</con2:id>
                                 <con3:expr>
-                                    <con2:xqueryText>&lt;tim1:TimesheetResponse>{concat('Timesheet: ', $body/tim:Timesheet/tim:Id, ' successfully created')}&lt;/tim1:TimesheetResponse></con2:xqueryText>
+                                    <con2:xqueryText xmlns:con4="http://www.bea.com/wli/sb/stages/config">&lt;tim1:TimesheetResponse>{concat('Timesheet: ', $body/tim:Timesheet/tim:Id, ' successfully created')}&lt;/tim1:TimesheetResponse></con2:xqueryText>
                                 </con3:expr>
                             </con3:replace>
                         </con1:responseTransform>
